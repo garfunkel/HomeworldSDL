@@ -26,7 +26,7 @@ ipString PATCHSERVER_IPSTRINGS[MAX_IPS];
 unsigned long HomeworldCRC[4];
 wchar_t GameWereInterestedIn[MAX_TITAN_GAME_NAME_LEN];
 void *GameWereInterestedInMutex = 0;
-
+enum mGameCreationState mGameCreationState;
 
 /*----------------------------------------------------------------------------
  * Functions
