@@ -64,7 +64,6 @@ src_game = files('AIAttackMan.c',
                  'KASFunc.c',
                  'KeyBindings.c',
                  'Key.c',
-                 'KNITransform.c',
                  'LagPrint.c',
                  'LaunchMgr.c',
                  'LevelLoad.c',
@@ -137,3 +136,9 @@ src_game = files('AIAttackMan.c',
                  'UnivUpdate.c',
                  'Vector.c',
                  'Volume.c')
+
+if build_machine.cpu_family() in ['x86', 'x86_64']
+    src_game += files('KNITransform.c')
+else
+	src_game += files('StubTransform.c')
+endif
