@@ -1,0 +1,1 @@
+src_third_party_lzss = files('BitIO.c', 'LZSS.c')

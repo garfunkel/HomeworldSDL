@@ -38,3 +38,5 @@ configure.ac
 
 cscope.files
 cscope.out
+
+build
