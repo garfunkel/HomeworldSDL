@@ -142,3 +142,8 @@ if build_machine.cpu_family() in ['x86', 'x86_64']
 else
 	src_game += files('StubTransform.c')
 endif
+
+src_game += custom_target('wrapped_functions.h',
+                          input: ['functions.h', 'wrap.h', 'wrap_types.h'],
+                          output: 'wrapped_functions.h',
+                          command: [meson.get_compiler('c').cmd_array(), '-E', '-o', '@OUTPUT@', '@INPUT0@'])

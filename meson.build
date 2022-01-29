@@ -15,14 +15,13 @@ if build_machine.cpu_family() == 'x86_64'
 elif build_machine.cpu_family() == 'x86'
 	c_args += ['-malign-double', '-D_X86', '-msse']
 elif build_machine.cpu_family() in ['arm', 'aarch64']
-	c_args += '-DARM'
-	#c_args += '-DGENERIC_ETGCALLFUNCTION'
+	c_args += ['-DARM', '-DGENERIC_ETGCALLFUNCTION']
 endif
 
 if build_machine.system() == 'linux'
 	c_args += ['-D_LINUX_FIX_ME']
 elif build_machine.system() == 'darwin'
-	c_args += ['-D__APPLE___FIX_ANIM', '-D__APPLE___FIX_LAN', '-D__APPLE___FIX_MISC']
+	c_args += ['-D__APPLE___FIX_ANIM', '-D__APPLE___FIX_LAN', '-D__APPLE___FIX_MISC', '-DGENERIC_ETGCALLFUNCTION']
 
 	if build_machine.cpu_family() == 'x86_64'
 		c_args += ['-D__APPLE___64', '-D__APPLE___FIX_64']
