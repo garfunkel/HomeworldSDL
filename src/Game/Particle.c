@@ -2010,7 +2010,7 @@ void partUpdateMeshAnimation(meshSystem* psys, particle* part, real32 dt)
  */
 int is_final_tex(trhandle tex)
 {
-#ifdef _MACOSX_FIX_86
+#ifdef __APPLE___FIX_86
     if (tex == 0xffffffff) return 1;
 #else
     if (tex == 0x7fffffff) return 1;

@@ -118,7 +118,7 @@
     #include <windows.h>
     #include <winreg.h>
     #include <shellapi.h>
-#elif defined(_MACOSX)
+#elif defined(__APPLE__)
     #include <sys/types.h>
     #include <sys/mman.h>
     #include <unistd.h>
@@ -1453,10 +1453,10 @@ udword utyCloseOK(regionhandle region, sdword ID, udword event, udword data)
     e.user.data2 = 0;
     returncode = SDL_PushEvent(&e);
 
-#ifdef _MACOSX
+#ifdef __APPLE__
 //quit hangs otherwise, so we just exit.
     exit(0);
-#endif //_MACOSX
+#endif //__APPLE__
   
     return 0;
 }
@@ -3504,7 +3504,7 @@ void utyGrowthHeapFree(void *heap)
     BOOL result;
     result = VirtualFree(heap, 0, MEM_RELEASE);
     dbgAssertOrIgnore(result);
-#elif _MACOSX
+#elif __APPLE__
 	//not sure if this is an equivalent statement, but it fixes a crash on exit
 	free(heap);
 #else
@@ -3608,7 +3608,7 @@ char* utyGameSystemsPreInit(void)
     {
         char *overrideBigPath = NULL;
 
-#ifdef _MACOSX
+#ifdef __APPLE__
         // let's not have files sprawling everywhere; besides it makes it easier to
         // create an unofficial patch .big should we ever decide to. (NB: this is a
         // directory, not a real .big file)
@@ -3793,7 +3793,7 @@ char* utyGameSystemsPreInit(void)
         MEMORYSTATUS memStat;
         GlobalMemoryStatus(&memStat);
         newSize = (sdword)((real32)memStat.dwTotalPhys * MEM_HeapDefaultScalar);
-#elif defined(_MACOSX)
+#elif defined(__APPLE__)
 		int phys_pages = 32768;
 		int page_size = getpagesize();
 		newSize = (sdword)((real32)phys_pages * (real32)page_size
@@ -4042,7 +4042,7 @@ char *utyGameSystemsInit(void)
     //show the opening plugscreens later
 #endif
 
-#ifndef _MACOSX_FIX_ANIM
+#ifndef __APPLE___FIX_ANIM
 #if 0
 DONE_INTROS:
 #endif
@@ -4677,7 +4677,7 @@ char *utyGameSystemsShutdown(void)
         bool result;
         result = VirtualFree(utyMemoryHeap, 0, MEM_RELEASE);
         dbgAssertOrIgnore(result);
-#elif _MACOSX
+#elif __APPLE__
 		//not sure if this is an equivalent statement, but it fixes a crash on exit
 		free(utyMemoryHeap);
 #else
@@ -4963,7 +4963,7 @@ void utyToggleKeyStatesRestore(void)
 {
     SDL_Keymod target = 0;
     const Uint8* state = SDL_GetKeyboardState(NULL);
-#if !defined(_WIN32) && !defined(_MACOSX)
+#if !defined(_WIN32) && !defined(__APPLE__)
     SDL_SysWMinfo info;
     SDL_VERSION(&info.version);
     SDL_GetWindowWMInfo(sdlwindow,&info);
@@ -4989,7 +4989,7 @@ void utyToggleKeyStatesRestore(void)
 
         // Simulate a key release
         keybd_event( VK_CAPITAL, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
-#elif !defined(_MACOSX)
+#elif !defined(__APPLE__)
         xe.xkey.keycode = XKeysymToKeycode(info.info.x11.display, XK_Caps_Lock);
 
         // Simulate a key press
@@ -5012,7 +5012,7 @@ void utyToggleKeyStatesRestore(void)
 
         // Simulate a key release
         keybd_event( VK_SCROLL, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
-#elif !defined(_MACOSX)
+#elif !defined(__APPLE__)
         xe.xkey.keycode = XKeysymToKeycode(info.info.x11.display, XK_Scroll_Lock);
 
         // Simulate a key press
@@ -5034,7 +5034,7 @@ void utyToggleKeyStatesRestore(void)
 
         // Simulate a key release
         keybd_event( VK_NUMLOCK, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
-#elif !defined(_MACOSX)
+#elif !defined(__APPLE__)
         xe.xkey.keycode = XKeysymToKeycode(info.info.x11.display, XK_Num_Lock);
 
         // Simulate a key press

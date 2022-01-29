@@ -26,7 +26,7 @@
 // "maximum length of a filesystem path string".
 #ifdef WIN32
     #define PATH_MAX MAX_PATH
-#elif defined _MACOSX
+#elif defined __APPLE__
     #include <sys/syslimits.h>
 #elif defined linux
     #include <limits.h>

@@ -497,7 +497,7 @@ int rinEnumerateDevices(void)
     rdevice  primaryDev;
     bool primaryVal;
     
-#ifndef _MACOSX_FIX_GL
+#ifndef __APPLE___FIX_GL
     int maxWidth;
 #endif
 
