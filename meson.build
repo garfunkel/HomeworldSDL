@@ -13,13 +13,17 @@ c_args += '-w'
 if build_machine.cpu_family() == 'x86_64'
 	c_args += ['-D_X86_64', '-D_X86_64_FIX_ME']
 elif build_machine.cpu_family() == 'x86'
-	c_args += ['-malign-double', '-D_X86']
+	c_args += ['-malign-double', '-D_X86', '-msse']
 elif build_machine.cpu_family() in ['arm', 'aarch64']
 	c_args += ['-DARM', '-DGENERIC_ETGCALLFUNCTION']
-endif 
+endif
 
 if build_machine.system() == 'linux'
 	c_args += ['-D_LINUX_FIX_ME']
+elif build_machine.system() == 'darwin'
+
+elif build_machine.system() == 'windows'
+
 endif
 
 dep_x11 = dependency('x11')
