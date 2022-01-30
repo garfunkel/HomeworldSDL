@@ -50,6 +50,7 @@ subdir('tools')
 subdir('src')
 subdir('tools/biggie')
 subdir('tools/monochrome-btg')
+subdir('tools/x86_64')
 
 alias_target('tools', exe_tools)
 

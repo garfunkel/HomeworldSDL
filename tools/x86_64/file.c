@@ -1,19 +1,16 @@
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
 #include <Types.h>
-       #include <sys/types.h>
-       #include <sys/stat.h>
-       #include <unistd.h>
 
-
-sdword fileExists(char *_fileName, udword flags)
+sdword fileExists(char *_fileName)
 {
 
   struct stat fileDetails;
 
   return (stat (_fileName,&fileDetails));
-
-
-
 }
 
 
@@ -109,7 +106,6 @@ void * fileloadalloc(char *_fileName, int *length, udword flags)
 sdword fileSave(char *_fileName, void *address, sdword length)
 {
     FILE *outFile;
-    char *fileName;
     sdword lengthWrote;
 
 

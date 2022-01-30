@@ -10,14 +10,8 @@
 int 
 main (int argc, char *argv[])
 {
-
-  int i;
-
-  int loopvar;
-  int loopcount;
-
   char oldFile[80];
-  char newFile[80];
+  char newFile[83];
   
   BANK *oldHeader = NULL;
   BANK *newHeader = NULL;
@@ -29,27 +23,22 @@ main (int argc, char *argv[])
   memsize loopsize=0;
 
   void * oldptr = NULL;
-  void * newptr = NULL;
   void * oldbase = NULL;
   void * newbase = NULL;
-  void * tmpptr = NULL;
   
   int oldLength;
   int newLength;
-
-    udword *oldShare = NULL;
-    udword *newShare = NULL;
 
   if (argc < 2 ){
     printf("usage %s <inputfile>\n", argv[0]);
     return 1;
   }
 
-  for (i=1; i<argc; i++) {
+  for (int i=1; i<argc; i++) {
     strcpy (oldFile, argv[i]);
     sprintf(newFile, "%s.64", oldFile);
 
-    if (fileExists(oldFile,0) != 0){
+    if (fileExists(oldFile) != 0){
       printf("File does not exist.\n");
       return 1;
     }
@@ -70,12 +59,11 @@ main (int argc, char *argv[])
 
     newbase = malloc(2*oldLength);
     newHeader = newbase;
-    newptr =  (void*) newbase;
 
     memset (newbase, 0 ,2*oldLength);
   
 
-    newHeader->id, oldHeader->id;
+    newHeader->id = oldHeader->id;
     newHeader->checksum = oldHeader->checksum;
     newHeader->numpatches = oldHeader->numpatches;
 
@@ -88,8 +76,8 @@ main (int argc, char *argv[])
 
     loopsize=newHeader->numpatches;
 
-    for (i=0;i<loopsize;i++){
-        printf("%3d: %d: dataoffset:%ld datasize: %ld loopstart: %ld loopend: %ld\n",i, oldPatch->id , oldPatch->dataoffset, oldPatch->datasize, oldPatch->loopstart, oldPatch -> loopend); 
+    for (unsigned int i=0;i<loopsize;i++){
+        printf("%3d: %d: dataoffset:%d datasize: %d loopstart: %d loopend: %d\n",i, oldPatch->id , oldPatch->dataoffset, oldPatch->datasize, oldPatch->loopstart, oldPatch -> loopend); 
         newPatch->id = oldPatch->id;
         newPatch->priority = oldPatch->priority;
         newPatch->pitch = oldPatch->pitch;
@@ -107,7 +95,7 @@ main (int argc, char *argv[])
         newPatch->waveformat.avgBytesPerSecond = oldPatch->waveformat.avgBytesPerSecond;
         newPatch->waveformat.blockAlign = oldPatch->waveformat.blockAlign;
         newPatch->wavepad = oldPatch->wavepad;
-        printf(" becomes dataoffset:%ld \n", newPatch->dataoffset); 
+        printf(" becomes dataoffset:%d \n", newPatch->dataoffset); 
 
     oldPatch++;
     newPatch++;
