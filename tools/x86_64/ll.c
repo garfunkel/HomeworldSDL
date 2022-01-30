@@ -49,7 +49,7 @@ main (int argc, char *argv[])
     strcpy (oldFile, argv[i]);
     sprintf(newFile, "%s.64", oldFile);
 
-    if (fileExists(oldFile,0) != 0){
+    if (fileExists(oldFile) != 0){
       printf("File does not exist.\n");
       return 1;
     }
