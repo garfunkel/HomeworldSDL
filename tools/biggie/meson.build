@@ -9,3 +9,5 @@ exe_tools_biggie = executable('biggie',
 							  link_with: [lib_crc, lib_lzss],
 							  dependencies: dep_sdl,
                               sources: src_tools_biggie)
+
+exe_tools += exe_tools_biggie

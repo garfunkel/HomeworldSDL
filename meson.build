@@ -49,8 +49,9 @@ dep_math = meson.get_compiler('c').find_library('m', required: false)
 subdir('tools')
 subdir('src')
 subdir('tools/biggie')
+subdir('tools/monochrome-btg')
 
-alias_target('tools', exe_tools_kas2c, exe_tools_polycount, exe_tools_biggie)
+alias_target('tools', exe_tools)
 
 executable(meson.project_name(),
            src,
