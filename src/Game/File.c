@@ -118,7 +118,7 @@ void fileNameReplaceSlashesInPlace(char *filePath)
 {
 	char *ptr = NULL;
 
-#ifdef WIN32
+#ifdef _WIN32
     #define PATH_DELIMITER     '\\'
     #define REPLACE_DELIMITER  '/'
 #else
