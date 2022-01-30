@@ -3,6 +3,11 @@ project('homeworld',
 	    version: '0.1',
 		default_options: ['warning_level=3'])
 
+dep_x11 = dependency('x11')
+dep_gl = dependency('gl')
+dep_sdl = dependency('sdl2')
+dep_math = meson.get_compiler('c').find_library('m', required: false)
+
 c_base_args = ['-DHW_GAME_HOMEWORLD']
 c_base_args += ['-DHAVE_CONFIG_H', '-D_REENTRANT']
 #c_base_args += '-Wno-unused-variable'
@@ -41,16 +46,14 @@ else
 	endif
 endif
 
-dep_x11 = dependency('x11')
-dep_gl = dependency('gl')
-dep_sdl = dependency('sdl2')
-dep_math = meson.get_compiler('c').find_library('m', required: false)
-
 subdir('tools')
 subdir('src')
 subdir('tools/biggie')
 subdir('tools/monochrome-btg')
-subdir('tools/x86_64')
+
+if build_machine.cpu_family() == 'x86_64'
+	subdir('tools/x86_64')
+endif
 
 alias_target('tools', exe_tools)
 
