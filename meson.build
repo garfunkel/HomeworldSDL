@@ -1,7 +1,7 @@
 project('homeworld',
         'c',
 	    version: '0.1',
-		default_options: ['warning_level=3'])
+		default_options: ['warning_level=3', 'c_std=c11'])
 
 dep_x11 = dependency('x11')
 dep_gl = dependency('gl')
@@ -23,7 +23,7 @@ elif build_machine.cpu_family() in ['arm', 'aarch64']
 endif
 
 if build_machine.system() == 'linux'
-	c_base_args += ['-D_LINUX_FIX_ME']
+	c_base_args += ['-D_LINUX_FIX_ME', '-D_GNU_SOURCE']
 elif build_machine.system() == 'darwin'
 	c_base_args += ['-D__APPLE___FIX_ANIM', '-D__APPLE___FIX_LAN', '-D__APPLE___FIX_MISC', '-DGENERIC_ETGCALLFUNCTION']
 
