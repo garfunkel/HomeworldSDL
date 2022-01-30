@@ -1,7 +1,7 @@
 project('homeworld',
         'c',
 	    version: '0.1',
-		default_options: ['warning_level=3', 'c_std=c11'])
+		default_options: ['warning_level=3', 'c_std=c17'])
 
 dep_x11 = dependency('x11')
 dep_gl = dependency('gl')
