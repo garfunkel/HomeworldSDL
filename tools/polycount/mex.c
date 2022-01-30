@@ -1,5 +1,5 @@
 //
-// Mex.cpp
+// Mex.c
 // mesh-related functions
 //
 
@@ -31,7 +31,7 @@ meshdata* meshLoad(char* filePrefix, char* fileName)
 
     fread(&header, sizeof(header), 1, file);
 
-    data = new ubyte[fileLength - sizeof(header) + sizeof(meshdata) - sizeof(polygonobject)];
+    data = malloc(fileLength - sizeof(header) + sizeof(meshdata) - sizeof(polygonobject));
     mesh = (meshdata*)data;
     offset = (udword)mesh - sizeof(header) + sizeof(meshdata) - sizeof(polygonobject);
     mesh->localSize = header.localSize;

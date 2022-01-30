@@ -103,69 +103,88 @@ mission_16_pp = custom_target('Mission16.kp',
 src_missions_single_player = []
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_01_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_02_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_03_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_04_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_05_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_05_OEM_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_06_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_07_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_08_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_09_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_10_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_11_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_12_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_13_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_14_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_15_pp)
 
 src_missions_single_player += generator(exe_tools_kas2c,
+                                        depends: exe_tools_kas2c,
                                         output: ['@BASENAME@.c', '@BASENAME@.h', '@BASENAME@.func.c'],
                                         arguments: ['@INPUT@', '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@']).process(mission_16_pp)
+
+inc_src_missions_single_player = include_directories('.')

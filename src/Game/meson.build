@@ -147,3 +147,5 @@ src_game += custom_target('wrapped_functions.h',
                           input: ['functions.h', 'wrap.h', 'wrap_types.h'],
                           output: 'wrapped_functions.h',
                           command: [meson.get_compiler('c').cmd_array(), '-E', '-o', '@OUTPUT@', '@INPUT0@'])
+
+inc_src_game = include_directories('.')

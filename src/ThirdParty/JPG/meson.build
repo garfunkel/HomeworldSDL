@@ -72,8 +72,10 @@ src_third_party_jpg = files(#'ansi2knr.c',
                             'wrrle.c',
                             'wrtarga.c')
 
-lib_jpg = static_library('hw_JPG',
+lib_jpg = static_library('hw_jpg',
                          src_third_party_jpg,
                          c_args: c_args,
                          dependencies: dep_sdl,
                          include_directories: ['../../Game', '../CRC', '../../SDL'])
+
+inc_src_third_party_jpg = include_directories('.')

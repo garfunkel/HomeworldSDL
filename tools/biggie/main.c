@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 
-#include "../../src/Game/BigFile.h"
+#include "BigFile.h"
 #include "options.h"
 
 extern char OptCommand;

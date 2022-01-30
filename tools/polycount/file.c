@@ -1,5 +1,5 @@
 //
-// file.cpp
+// file.c
 //
 
 #include <stdio.h>

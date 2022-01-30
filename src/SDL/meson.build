@@ -27,8 +27,10 @@ src_sdl += files('fqcodec.c',
 				 'fquant.c',
 				 'dct.c')
 
-lib_sdl = static_library('hw_SDL',
+lib_sdl = static_library('hw_sdl',
                          src_sdl,
                          c_args: c_args,
                          dependencies: dep_sdl,
                          include_directories: ['../Game', '../Ships', '../ThirdParty/CRC', '../ThirdParty/JPG'])
+
+inc_src_sdl = include_directories('.')

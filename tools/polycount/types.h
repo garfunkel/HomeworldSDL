@@ -23,7 +23,4 @@ typedef udword rgbquad;
 typedef udword rgbaquad;
 typedef rgbquad color;
 
-#define TRUE  1
-#define FALSE 0
-
 #endif

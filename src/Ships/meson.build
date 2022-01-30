@@ -38,3 +38,5 @@ src_ships = files('AdvanceSupportFrigate.c',
                   'SensorArray.c',
                   'StandardDestroyer.c',
                   'StandardFrigate.c')
+
+inc_src_ships = include_directories('.')
