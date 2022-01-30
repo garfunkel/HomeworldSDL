@@ -55,7 +55,10 @@ if build_machine.cpu_family() == 'x86_64'
 	subdir('tools/x86_64')
 endif
 
+subdir('assets')
+
 alias_target('tools', exe_tools)
+alias_target('assets', assets)
 
 executable(meson.project_name(),
            src,
