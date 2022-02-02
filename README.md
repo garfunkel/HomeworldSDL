@@ -1,5 +1,7 @@
 # Homeworld SDL
 
+## NOTE: This repository has been supplanted by https://github.com/garfunkel/Homeworld
+
 [SDL] port of the [Homeworld] source code that was [released in 2003] by [Relic Entertainment].
 
 [SDL]: https://en.wikipedia.org/wiki/Simple_DirectMedia_Layer
